@@ -1,0 +1,15 @@
+packages:
+  - name: discord
+    actions:
+      - name: leaderboard
+        runtime: 'go:default'
+        environment:
+          BOT_SECRET_KEY: '${BOT_SECRET_KEY}'
+          GUILD_ID: '${GUILD_ID}'
+          ROLE_ID: '${ROLE_ID}'
+        triggers:
+          - name: trigger-leaderboard
+            sourceType: scheduler
+            sourceDetails:
+              cron: "0 0 * * *"
+
